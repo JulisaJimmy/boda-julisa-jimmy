@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#FBF5F4">
+
+    <meta name="description" content="Acompáñanos a celebrar el matrimonio de Julisa y Jimmy.">
+
+    <title>Julisa & Jimmy | Nuestra boda</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- =====================================
+         PANTALLA DE BIENVENIDA - SOBRE
+    ====================================== -->
+
+    <div id="pantallaBienvenida" class="pantalla-bienvenida">
+
+        <div class="sobre-escena">
+
+            <!-- CARTA QUE SOBRESALE DEL SOBRE -->
+
+            <div class="carta-sobre">
+
+                <p class="bienvenida-etiqueta">
+                    CON LA BENDICIÓN DE DIOS
+                </p>
+
+                <div class="adorno">✧</div>
+
+                <h1>
+                    Julisa <span>&</span> Jimmy
+                </h1>
+
+                <p class="bienvenida-fecha">
+                    20 · 11 · 2026
+                </p>
+
+                <div class="linea-dorada"></div>
+
+                <p class="bienvenida-texto">
+                    Tenemos algo especial que compartir contigo. Nos encantaría que formes parte de este día.
+                </p>
+
+            </div>
+
+
+            <!-- SOBRE DE LA INVITACIÓN -->
+
+            <div class="sobre">
+
+                <div class="sobre-cuerpo"></div>
+
+                <div class="sobre-frente"></div>
+
+                <div class="sobre-solapa"></div>
+
+                <!-- SELLO DEL SOBRE -->
+
+                <div class="sobre-sello">
+                    ♡
+                </div>
+
+            </div>
+
+
+            <!-- BOTÓN PARA ABRIR -->
+
+            <button id="abrirInvitacion" type="button">
+                Abrir invitación ♡
+            </button>
+
+
+            <p class="bienvenida-pie">
+                UNA HISTORIA DE AMOR, UNA PROMESA PARA SIEMPRE
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================
+         INVITACIÓN PRINCIPAL
+    ====================================== -->
+
+    <main class="invitacion">
+
+
+        <!-- PORTADA DE LOS NOVIOS -->
+
+        <section class="portada">
+
+            <p class="sobrelinea">
+                CON LA BENDICIÓN DE DIOS
+            </p>
+
+            <div class="adorno-portada">
+                ✧
+            </div>
+
+            <h1>
+                Julisa <span>&</span> Jimmy
+            </h1>
+
+            <p class="fecha" id="fecha"></p>
+
+            <img id="fotoPareja" class="foto" alt="Fotografía de Julisa y Jimmy">
+
+            <p class="frase">
+                «Mejores son dos que uno».
+                <br> Eclesiastés 4:9
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             NOS CASAMOS
+        ================================== -->
+
+        <section class="seccion">
+
+            <h2>¡Nos casamos!</h2>
+
+            <div class="adorno-seccion">✧</div>
+
+            <p>
+                Nos llena de alegría compartir contigo este día tan especial.
+            </p>
+
+            <div id="cuentaRegresiva"></div>
+
+        </section>
+
+
+        <!-- =================================
+             RECEPCIÓN
+        ================================== -->
+
+        <section class="seccion">
+
+            <h2>La recepción</h2>
+
+            <div class="adorno-seccion">✧</div>
+
+            <p id="horaRecepcion"></p>
+
+            <h3 id="lugarRecepcion"></h3>
+
+            <p id="direccionRecepcion"></p>
+
+            <a id="mapaRecepcion" target="_blank" rel="noopener noreferrer">
+                Ver ubicación en Google Maps
+            </a>
+
+        </section>
+
+
+        <!-- =================================
+             CÓDIGO DE VESTIMENTA
+        ================================== -->
+
+        <section class="seccion vestimenta">
+
+            <h2>CÓDIGO DE VESTIMENTA</h2>
+
+            <div class="adorno-seccion">✧</div>
+
+            <p>
+                Nos reservamos el Blanco para la Novia
+            </p>
+
+            <div class="vestimenta-contenedor">
+
+
+                <!-- VESTIMENTA MUJERES -->
+
+                <div class="vestimenta-item">
+
+                    <img src="mujer-largo.png" alt="Mujer con vestido largo elegante" loading="lazy">
+
+                    <p>
+                        Mujeres de largo
+                    </p>
+
+                </div>
+
+
+                <!-- VESTIMENTA HOMBRES -->
+
+                <div class="vestimenta-item">
+
+                    <img src="hombre-traje.png" alt="Hombre con traje formal" loading="lazy">
+
+                    <p>
+                        Hombres de traje
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             DETALLE ESPECIAL
+        ================================== -->
+
+        <section class="seccion">
+
+            <h2>Un detalle especial</h2>
+
+            <div class="adorno-seccion">♡</div>
+
+            <p>
+                Agradeceremos mucho si desean tener un detalle con nosotros o expresar sus muestras de cariño en un sobre cerrado.
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             CONFIRMACIÓN DE ASISTENCIA
+        ================================== -->
+
+        <section class="seccion">
+
+            <h2>Confirma tu asistencia</h2>
+
+            <div class="adorno-seccion">✧</div>
+
+            <p>
+                Tu presencia será una alegría para nosotros.
+            </p>
+
+            <form id="formularioRSVP">
+
+                <input name="nombre" type="text" placeholder="Nombre completo" autocomplete="name" required>
+
+
+                <select name="asistencia" required>
+
+                    <option value="">
+                        ¿Nos acompañarás?
+                    </option>
+
+                    <option value="Sí asistiré">
+                        Sí, asistiré
+                    </option>
+
+                    <option value="No podré asistir">
+                        No podré asistir
+                    </option>
+
+                </select>
+
+
+                <input name="personas" type="number" min="1" max="10" value="1" required placeholder="Número de personas">
+
+
+                <button type="submit">
+                    Enviar confirmación
+                </button>
+
+
+                <p id="mensajeRSVP" role="status"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- =================================
+             DESPEDIDA
+        ================================== -->
+
+        <section class="seccion despedida">
+
+            <div class="adorno-seccion">♡</div>
+
+            <p class="frase">
+                «El amor nunca deja de ser».
+                <br> 1 Corintios 13:8
+            </p>
+
+            <p>
+                ¡Te esperamos!
+            </p>
+
+            <h2>
+                Julisa & Jimmy
+            </h2>
+
+            <p class="despedida-pie">
+                20 · 11 · 2026
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================
+         MÚSICA
+    ====================================== -->
+
+    <audio id="musica" loop preload="auto"></audio>
+
+
+    <!-- BOTÓN DE CONTROL DE MÚSICA -->
+
+    <button id="botonMusica" type="button" hidden>
+        ♪ Música
+    </button>
+
+
+    <!-- =====================================
+         ARCHIVOS JAVASCRIPT
+    ====================================== -->
+
+    <script src="config.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

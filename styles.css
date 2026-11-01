@@ -1,0 +1,960 @@
+/* =========================================
+   INVITACIÓN DE BODA
+   JULISA & JIMMY
+   DISEÑO RESPONSIVE PARA TODOS LOS DISPOSITIVOS
+========================================= */
+
+:root {
+    --rosa: #C58F98;
+    --rosa-oscuro: #A96F7A;
+    --rosa-suave: #E8C9CD;
+    --rosa-claro: #F9EFF0;
+    --blanco: #FFFFFF;
+    --marfil: #FFFCFB;
+    --texto: #75545A;
+    --borde: #E4C4C9;
+    --fondo: #FBF5F4;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    background: var(--rosa-claro);
+    color: var(--texto);
+    font-family: Georgia, serif;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =========================================
+   ANIMACIONES
+========================================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes flotarCarta {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes brilloSello {
+    0%,
+    100% {
+        box-shadow: 0 3px 10px rgba(117, 84, 90, .15);
+    }
+    50% {
+        box-shadow: 0 4px 17px rgba(169, 111, 122, .35);
+    }
+}
+
+
+/* =========================================
+   PANTALLA DE BIENVENIDA
+========================================= */
+
+.pantalla-bienvenida {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: max(24px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: radial-gradient( circle at center, #FFFFFF 0%, #FBF5F4 65%, #F1E5E3 100%);
+    transition: opacity .9s ease, visibility .9s ease;
+}
+
+.pantalla-bienvenida.oculta {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ESCENA COMPLETA DEL SOBRE
+
+   IMPORTANTE:
+   Ya no utilizamos posiciones absolutas
+   para organizar la carta y el botón.
+========================================= */
+
+.sobre-escena {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    min-height: 0;
+    margin: auto;
+    animation: aparecer 1.2s ease;
+}
+
+
+/* =========================================
+   CARTA QUE SOBRESALE DEL SOBRE
+========================================= */
+
+.carta-sobre {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 86%;
+    max-width: 390px;
+    min-height: 310px;
+    padding: 27px 18px 75px;
+    margin: 0;
+    background: var(--marfil);
+    border: 1px solid var(--rosa-suave);
+    box-shadow: 0 5px 20px rgba(117, 84, 90, .10);
+    z-index: 1;
+    text-align: center;
+    overflow: hidden;
+    animation: flotarCarta 5s ease-in-out infinite;
+}
+
+
+/* Etiqueta superior */
+
+.carta-sobre .bienvenida-etiqueta {
+    width: 100%;
+    margin: 0 0 12px;
+    color: var(--rosa-oscuro);
+    font-size: 10px;
+    letter-spacing: 3px;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+
+
+/* Adorno */
+
+.carta-sobre .adorno {
+    color: var(--rosa);
+    font-size: 26px;
+    margin: 5px 0 8px;
+}
+
+
+/* Nombres de los novios */
+
+.carta-sobre h1 {
+    width: 100%;
+    margin: 8px 0;
+    color: var(--rosa-oscuro);
+    font-size: clamp(27px, 6.5vw, 44px);
+    font-weight: normal;
+    line-height: 1.2;
+    overflow-wrap: normal;
+    word-break: normal;
+}
+
+.carta-sobre h1 span {
+    font-style: italic;
+}
+
+
+/* Fecha */
+
+.carta-sobre .bienvenida-fecha {
+    margin: 10px 0;
+    color: var(--rosa-oscuro);
+    font-size: 12px;
+    letter-spacing: 4px;
+    line-height: 1.6;
+}
+
+
+/* Línea decorativa */
+
+.carta-sobre .linea-dorada {
+    width: 55px;
+    height: 1px;
+    min-height: 1px;
+    margin: 13px auto;
+    background: var(--rosa);
+}
+
+
+/* Mensaje */
+
+.carta-sobre .bienvenida-texto {
+    width: 100%;
+    max-width: 310px;
+    margin: 0 auto;
+    color: var(--texto);
+    font-size: 12px;
+    line-height: 1.6;
+    font-style: italic;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   SOBRE
+========================================= */
+
+.sobre {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    flex-shrink: 0;
+    /* El sobre cubre solamente la parte
+       inferior de la carta */
+    margin-top: -75px;
+    z-index: 3;
+    filter: drop-shadow(0 8px 8px rgba(117, 84, 90, .13));
+}
+
+
+/* Base del sobre */
+
+.sobre-cuerpo {
+    position: absolute;
+    inset: 0;
+    background: #E8C9CD;
+    clip-path: polygon( 0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
+}
+
+
+/* Frente del sobre */
+
+.sobre-frente {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient( 145deg, #F3DADD, #E8C9CD);
+    clip-path: polygon( 0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+    z-index: 2;
+}
+
+
+/* Solapa triangular */
+
+.sobre-solapa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 112px;
+    background: linear-gradient( 180deg, #D9AEB5, #E8C9CD);
+    clip-path: polygon( 0 0, 100% 0, 50% 100%);
+    z-index: 3;
+}
+
+
+/* Sello */
+
+.sobre-sello {
+    position: absolute;
+    top: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--rosa-oscuro);
+    border: 3px solid #DDB8BE;
+    color: #FFFFFF;
+    font-size: 25px;
+    z-index: 4;
+    animation: brilloSello 4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   BOTÓN ABRIR INVITACIÓN
+
+   Su posición ahora es automática.
+========================================= */
+
+#abrirInvitacion {
+    position: relative;
+    display: block;
+    width: min(230px, 85%);
+    min-height: 52px;
+    margin: 23px auto 0;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 40px;
+    background: var(--rosa);
+    color: #FFFFFF;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    cursor: pointer;
+    z-index: 5;
+    box-shadow: 0 5px 15px rgba(117, 84, 90, .15);
+    transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
+}
+
+#abrirInvitacion:hover {
+    background: var(--rosa-oscuro);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(117, 84, 90, .22);
+}
+
+
+/* =========================================
+   TEXTO INFERIOR
+========================================= */
+
+.sobre-escena .bienvenida-pie {
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    margin: 17px auto 0;
+    padding: 0 5px;
+    color: var(--rosa-oscuro);
+    font-size: 8px;
+    letter-spacing: 1.7px;
+    line-height: 1.8;
+    text-align: center;
+    overflow-wrap: break-word;
+    z-index: 5;
+}
+
+
+/* =========================================
+   INVITACIÓN PRINCIPAL
+========================================= */
+
+.invitacion {
+    width: 100%;
+    max-width: 760px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 35px 22px;
+    background: var(--blanco);
+    box-shadow: 0 0 30px rgba(117, 84, 90, .06);
+}
+
+
+/* =========================================
+   PORTADA DE LOS NOVIOS
+========================================= */
+
+.portada {
+    width: 100%;
+    padding: 55px 15px 40px;
+    border: 1px solid var(--rosa-suave);
+    background: linear-gradient( 180deg, #FFFFFF 0%, #FFFAFB 100%);
+}
+
+.sobrelinea {
+    color: var(--rosa-oscuro);
+    font-size: 12px;
+    letter-spacing: 4px;
+    line-height: 1.8;
+}
+
+.adorno-portada {
+    margin: 20px 0;
+    color: var(--rosa);
+    font-size: 24px;
+}
+
+h1 {
+    color: var(--rosa-oscuro);
+    font-size: clamp(35px, 7vw, 68px);
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
+h1 span {
+    font-style: italic;
+}
+
+.fecha {
+    color: var(--texto);
+    font-size: 14px;
+    letter-spacing: 3px;
+    line-height: 1.7;
+}
+
+
+/* Fotografía */
+
+.foto {
+    display: block;
+    width: min(100%, 420px);
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    margin: 25px auto;
+    border: 3px solid var(--rosa-claro);
+    border-radius: 5px;
+}
+
+
+/* =========================================
+   SECCIONES GENERALES
+========================================= */
+
+.seccion {
+    width: 100%;
+    padding: 48px 12px;
+    border-bottom: 1px solid var(--rosa-suave);
+}
+
+.seccion h2 {
+    color: var(--rosa-oscuro);
+    font-size: clamp(24px, 5vw, 30px);
+    font-weight: normal;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+.seccion h3 {
+    color: var(--texto);
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+.seccion>p {
+    font-size: 15px;
+    line-height: 1.8;
+    overflow-wrap: break-word;
+}
+
+.adorno-seccion {
+    color: var(--rosa);
+    font-size: 22px;
+    margin: 18px 0;
+}
+
+.frase {
+    color: var(--texto);
+    font-style: italic;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+
+/* =========================================
+   CÓDIGO DE VESTIMENTA
+========================================= */
+
+.vestimenta {
+    padding: 55px 15px;
+    background: #FFFAF8;
+}
+
+.vestimenta h2 {
+    color: var(--texto);
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 5vw, 27px);
+    letter-spacing: 2px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.vestimenta>p {
+    margin: 25px auto 35px;
+    color: var(--texto);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* Contenedor de las ilustraciones */
+
+.vestimenta-contenedor {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: end;
+    gap: clamp(8px, 4vw, 25px);
+    width: 100%;
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+
+/* Cada ilustración */
+
+.vestimenta-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+
+/* Imágenes */
+
+.vestimenta-item img {
+    display: block;
+    width: 100%;
+    max-width: 175px;
+    height: clamp(165px, 28vw, 230px);
+    object-fit: contain;
+    object-position: center bottom;
+    margin: 0 auto;
+}
+
+
+/* Textos de vestimenta */
+
+.vestimenta-item p {
+    width: 100%;
+    margin: 12px 0 0;
+    color: var(--texto);
+    font-size: 15px;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   ENLACES
+========================================= */
+
+a {
+    display: inline-block;
+    max-width: 100%;
+    margin: 12px;
+    color: var(--rosa-oscuro);
+    text-decoration: none;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+    transition: color .3s ease;
+}
+
+a:hover {
+    color: var(--rosa);
+}
+
+
+/* =========================================
+   FORMULARIO DE CONFIRMACIÓN
+========================================= */
+
+#formularioRSVP {
+    width: 100%;
+    max-width: 440px;
+    margin: 25px auto 0;
+}
+
+#formularioRSVP input,
+#formularioRSVP select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 13px auto;
+    padding: 14px;
+    border: 1px solid var(--rosa-suave);
+    border-radius: 7px;
+    background: #FFFAFB;
+    color: var(--texto);
+    font-family: Georgia, serif;
+    font-size: 16px;
+    line-height: 1.5;
+    appearance: auto;
+}
+
+#formularioRSVP input:focus,
+#formularioRSVP select:focus {
+    outline: 2px solid var(--rosa-suave);
+    border-color: var(--rosa);
+}
+
+
+/* Botones */
+
+button {
+    font-family: Georgia, serif;
+}
+
+#formularioRSVP button {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    margin: 15px auto;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 7px;
+    background: var(--rosa);
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background .3s ease;
+}
+
+#formularioRSVP button:hover {
+    background: var(--rosa-oscuro);
+}
+
+button:disabled {
+    opacity: .7;
+    cursor: not-allowed;
+}
+
+
+/* Mensaje del formulario */
+
+#mensajeRSVP {
+    color: var(--rosa-oscuro);
+    font-size: 14px;
+    line-height: 1.7;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   DESPEDIDA
+========================================= */
+
+.despedida {
+    padding: 55px 15px;
+}
+
+.despedida h2 {
+    margin-top: 25px;
+}
+
+.despedida-pie {
+    margin-top: 25px;
+    color: var(--rosa-oscuro);
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+
+/* =========================================
+   BOTÓN DE MÚSICA
+========================================= */
+
+#botonMusica {
+    position: fixed;
+    right: max(15px, env(safe-area-inset-right));
+    bottom: max(15px, env(safe-area-inset-bottom));
+    z-index: 100;
+    display: block;
+    width: auto;
+    max-width: 180px;
+    margin: 0;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 30px;
+    background: var(--rosa);
+    color: white;
+    font-size: 14px;
+    box-shadow: 0 3px 12px rgba(117, 84, 90, .18);
+}
+
+
+/* =========================================
+   CUENTA REGRESIVA
+========================================= */
+
+#cuentaRegresiva {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    color: var(--rosa-oscuro);
+    font-size: clamp(15px, 3vw, 20px);
+    line-height: 1.8;
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (min-width: 600px) and (max-width: 1024px) {
+    .invitacion {
+        max-width: 760px;
+        padding: 35px 25px;
+    }
+    .sobre-escena {
+        max-width: 440px;
+    }
+    .portada {
+        padding: 50px 20px;
+    }
+    .seccion {
+        padding: 50px 20px;
+    }
+    .vestimenta-item img {
+        height: 220px;
+    }
+}
+
+
+/* =========================================
+   CELULARES
+========================================= */
+
+@media (max-width: 599px) {
+    /* Pantalla de bienvenida */
+    .pantalla-bienvenida {
+        padding: 20px 14px;
+        align-items: center;
+    }
+    .sobre-escena {
+        max-width: 400px;
+    }
+    /* Carta */
+    .carta-sobre {
+        width: 90%;
+        min-height: 295px;
+        padding: 24px 13px 70px;
+    }
+    .carta-sobre .bienvenida-etiqueta {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+    }
+    .carta-sobre h1 {
+        font-size: clamp(27px, 7.5vw, 39px);
+    }
+    .carta-sobre .bienvenida-fecha {
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+    .carta-sobre .bienvenida-texto {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+    /* Sobre */
+    .sobre {
+        height: 165px;
+        margin-top: -70px;
+    }
+    .sobre-solapa {
+        height: 100px;
+    }
+    .sobre-sello {
+        top: 65px;
+        width: 43px;
+        height: 43px;
+        font-size: 23px;
+    }
+    /* Botón */
+    #abrirInvitacion {
+        width: min(230px, 85%);
+        min-height: 50px;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+    /* Texto inferior */
+    .sobre-escena .bienvenida-pie {
+        max-width: 330px;
+        margin-top: 16px;
+        padding: 0 10px;
+        font-size: 7px;
+        letter-spacing: 1.2px;
+    }
+    /* Invitación */
+    .invitacion {
+        width: 100%;
+        padding: 15px 12px;
+    }
+    .portada {
+        padding: 38px 12px;
+    }
+    .sobrelinea {
+        font-size: 10px;
+        letter-spacing: 3px;
+    }
+    .portada h1 {
+        font-size: clamp(34px, 9vw, 48px);
+    }
+    /* Fotografía */
+    .foto {
+        width: 100%;
+        height: auto;
+        max-height: 450px;
+    }
+    /* Secciones */
+    .seccion {
+        padding: 38px 10px;
+    }
+    .seccion h2 {
+        font-size: 26px;
+    }
+    /* Vestimenta */
+    .vestimenta {
+        padding: 42px 8px;
+    }
+    .vestimenta h2 {
+        font-size: 22px;
+        letter-spacing: 1.5px;
+    }
+    .vestimenta>p {
+        font-size: 14px;
+        margin: 20px 0 30px;
+    }
+    .vestimenta-contenedor {
+        gap: 8px;
+    }
+    .vestimenta-item img {
+        height: clamp(155px, 45vw, 190px);
+    }
+    .vestimenta-item p {
+        font-size: 12px;
+    }
+    /* Formularios */
+    #formularioRSVP input,
+    #formularioRSVP select {
+        font-size: 16px;
+        padding: 13px;
+    }
+    /* Cuenta regresiva */
+    #cuentaRegresiva {
+        font-size: 16px;
+        line-height: 1.9;
+    }
+    /* Botón de música */
+    #botonMusica {
+        right: 12px;
+        bottom: 12px;
+        padding: 11px 16px;
+    }
+}
+
+
+/* =========================================
+   CELULARES PEQUEÑOS
+   320px - 360px
+========================================= */
+
+@media (max-width: 360px) {
+    .pantalla-bienvenida {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .carta-sobre {
+        min-height: 285px;
+        padding: 22px 10px 70px;
+    }
+    .carta-sobre .bienvenida-etiqueta {
+        font-size: 8px;
+        letter-spacing: 2px;
+    }
+    .carta-sobre h1 {
+        font-size: 28px;
+    }
+    .carta-sobre .bienvenida-fecha {
+        font-size: 10px;
+        letter-spacing: 2.5px;
+    }
+    .carta-sobre .bienvenida-texto {
+        font-size: 10px;
+    }
+    .sobre {
+        height: 155px;
+        margin-top: -65px;
+    }
+    .sobre-solapa {
+        height: 90px;
+    }
+    .sobre-sello {
+        top: 59px;
+        width: 40px;
+        height: 40px;
+    }
+    .sobre-escena .bienvenida-pie {
+        font-size: 6.5px;
+        letter-spacing: 1px;
+    }
+    .vestimenta-item img {
+        height: 155px;
+    }
+    .vestimenta-item p {
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================
+   PANTALLAS BAJAS Y CELULARES HORIZONTALES
+========================================= */
+
+@media (max-height: 650px) {
+    .pantalla-bienvenida {
+        align-items: flex-start;
+    }
+    .sobre-escena {
+        margin-top: 12px;
+        margin-bottom: 12px;
+    }
+    .carta-sobre {
+        min-height: 275px;
+        padding-top: 20px;
+    }
+    .sobre {
+        height: 150px;
+        margin-top: -65px;
+    }
+    .sobre-solapa {
+        height: 90px;
+    }
+    .sobre-sello {
+        top: 58px;
+    }
+    #abrirInvitacion {
+        margin-top: 17px;
+    }
+}
+
+
+/* =========================================
+   ACCESIBILIDAD
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
