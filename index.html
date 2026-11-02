@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FBF5F4">
-
     <meta name="description" content="Acompáñanos a celebrar el matrimonio de Julisa y Jimmy.">
 
     <title>Julisa & Jimmy | Nuestra boda</title>
@@ -22,8 +22,6 @@
     <div id="pantallaBienvenida" class="pantalla-bienvenida">
 
         <div class="sobre-escena">
-
-            <!-- CARTA QUE SOBRESALE DEL SOBRE -->
 
             <div class="carta-sobre">
 
@@ -49,18 +47,11 @@
 
             </div>
 
-
-            <!-- SOBRE DE LA INVITACIÓN -->
-
             <div class="sobre">
 
                 <div class="sobre-cuerpo"></div>
-
                 <div class="sobre-frente"></div>
-
                 <div class="sobre-solapa"></div>
-
-                <!-- SELLO DEL SOBRE -->
 
                 <div class="sobre-sello">
                     ♡
@@ -68,13 +59,9 @@
 
             </div>
 
-
-            <!-- BOTÓN PARA ABRIR -->
-
             <button id="abrirInvitacion" type="button">
                 Abrir invitación ♡
             </button>
-
 
             <p class="bienvenida-pie">
                 UNA HISTORIA DE AMOR, UNA PROMESA PARA SIEMPRE
@@ -91,8 +78,7 @@
 
     <main class="invitacion">
 
-
-        <!-- PORTADA DE LOS NOVIOS -->
+        <!-- PORTADA -->
 
         <section class="portada">
 
@@ -100,9 +86,7 @@
                 CON LA BENDICIÓN DE DIOS
             </p>
 
-            <div class="adorno-portada">
-                ✧
-            </div>
+            <div class="adorno-portada">✧</div>
 
             <h1>
                 Julisa <span>&</span> Jimmy
@@ -120,9 +104,7 @@
         </section>
 
 
-        <!-- =================================
-             NOS CASAMOS
-        ================================== -->
+        <!-- NOS CASAMOS -->
 
         <section class="seccion">
 
@@ -139,9 +121,7 @@
         </section>
 
 
-        <!-- =================================
-             RECEPCIÓN
-        ================================== -->
+        <!-- RECEPCIÓN -->
 
         <section class="seccion">
 
@@ -162,9 +142,7 @@
         </section>
 
 
-        <!-- =================================
-             CÓDIGO DE VESTIMENTA
-        ================================== -->
+        <!-- CÓDIGO DE VESTIMENTA -->
 
         <section class="seccion vestimenta">
 
@@ -178,41 +156,28 @@
 
             <div class="vestimenta-contenedor">
 
-
-                <!-- VESTIMENTA MUJERES -->
-
                 <div class="vestimenta-item">
 
                     <img src="mujer-largo.png" alt="Mujer con vestido largo elegante" loading="lazy">
 
-                    <p>
-                        Mujeres de largo
-                    </p>
+                    <p>Mujeres de largo</p>
 
                 </div>
-
-
-                <!-- VESTIMENTA HOMBRES -->
 
                 <div class="vestimenta-item">
 
                     <img src="hombre-traje.png" alt="Hombre con traje formal" loading="lazy">
 
-                    <p>
-                        Hombres de traje
-                    </p>
+                    <p>Hombres de traje</p>
 
                 </div>
-
 
             </div>
 
         </section>
 
 
-        <!-- =================================
-             DETALLE ESPECIAL
-        ================================== -->
+        <!-- DETALLE ESPECIAL -->
 
         <section class="seccion">
 
@@ -227,9 +192,7 @@
         </section>
 
 
-        <!-- =================================
-             CONFIRMACIÓN DE ASISTENCIA
-        ================================== -->
+        <!-- CONFIRMACIÓN DE ASISTENCIA -->
 
         <section class="seccion">
 
@@ -241,10 +204,34 @@
                 Tu presencia será una alegría para nosotros.
             </p>
 
+            <div class="fecha-limite">
+
+                <span class="fecha-limite-titulo">
+                    FECHA LÍMITE PARA CONFIRMAR
+                </span>
+
+                <h3>
+                    13 de noviembre de 2026
+                </h3>
+
+                <p>
+                    Por favor, confirma tu asistencia antes de esta fecha para ayudarnos con la organización de nuestra celebración.
+                </p>
+
+            </div>
+
+
+            <!-- FORMULARIO -->
+
             <form id="formularioRSVP">
 
-                <input name="nombre" type="text" placeholder="Nombre completo" autocomplete="name" required>
-
+                <input
+                    name="nombre"
+                    type="text"
+                    placeholder="Nombres completos de quienes asistirán"
+                    autocomplete="name"
+                    required
+                >
 
                 <select name="asistencia" required>
 
@@ -262,25 +249,45 @@
 
                 </select>
 
-
-                <input name="personas" type="number" min="1" max="10" value="1" required placeholder="Número de personas">
-
+                <input
+                    name="personas"
+                    type="number"
+                    min="1"
+                    max="10"
+                    value="1"
+                    required
+                    placeholder="Número de personas"
+                >
 
                 <button type="submit">
                     Enviar confirmación
                 </button>
 
-
                 <p id="mensajeRSVP" role="status"></p>
 
             </form>
 
+
+            <!-- MENSAJE SOBRE EL AFORO -->
+
+            <div class="nota-invitacion">
+
+                <div class="nota-adorno">♡</div>
+
+                <p>
+                    ¡Nos encantará tenerte con nosotros!
+                </p>
+
+                <p>
+                    Por motivos de aforo, esta invitación es personal y exclusiva para ti.
+                </p>
+
+            </div>
+
         </section>
 
 
-        <!-- =================================
-             DESPEDIDA
-        ================================== -->
+        <!-- DESPEDIDA -->
 
         <section class="seccion despedida">
 
@@ -305,18 +312,14 @@
 
         </section>
 
-
     </main>
 
 
     <!-- =====================================
-         MÚSICA
+         MÚSICA DE FONDO
     ====================================== -->
 
     <audio id="musica" loop preload="auto"></audio>
-
-
-    <!-- BOTÓN DE CONTROL DE MÚSICA -->
 
     <button id="botonMusica" type="button" hidden>
         ♪ Música
@@ -328,8 +331,7 @@
     ====================================== -->
 
     <script src="config.js"></script>
-
-    <script src="script.js"></script>
+    <script src="script.js?v=6"></script>
 
 </body>
 
